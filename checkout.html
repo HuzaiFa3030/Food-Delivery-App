@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Delivery Application</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="icon" href="imges/icon.png">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAK5qa9ghea8GopMih6ZbHWJykS2fzUpMU",
+      authDomain: "food-delivery-applicatio-45882.firebaseapp.com",
+      projectId: "food-delivery-applicatio-45882",
+      storageBucket: "food-delivery-applicatio-45882.appspot.com",
+      messagingSenderId: "782867296298",
+      appId: "1:782867296298:web:4dab548bfe26e3bb221353",
+      measurementId: "G-GTF40YE397"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+
+<body>
+  <!-- -------------------NAVBAR---------------- -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/index.html">
+      <img src="/imges/logo.svg" style="width: 175px; height: 45px; margin-top: -4px;"
+        alt="Your browser is not supported this image">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/adminpage.html"><strong>DASHBOARD</strong> <span
+                  class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="form-control btnhover mr-sm-2" type="submit" onclick="logOut()">Log Out</button>
+    </div>
+    </div>
+  </nav>
+
+  <!-- -------------------------Heading------------- -->
+  </br>
+  <h2 class="main heading2 active">checkout</h2>
+  <br><br>
+
+
+  <div class="tbl" id="cart_tbl">
+    <input type="submit" value="Recive All Order" class="fourth" id="clearBTN" onclick="ok()">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <!-- <th scope="col">S.NO</th> -->
+          <th scope="col">Item Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Category</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody id="tblData">
+        <tr>
+
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div id="subTotal">
+      
+    </div>
+  </div>
+
+  <!-- ---------------------------FOOTER ----------------------------->
+  <footer>
+    <ul class="uli">
+      <li class="li2"><strong>PRODUCTS</strong></li>
+      <li class="li1 lli">Phones</li>
+      <li class="lli">Tablets</li>
+      <li class="lli">Wearables</li>
+      <li class="lli">Headphones</li>
+    </ul>
+    <ul class="uli">
+      <li class="li2"><strong>MOBILE SERVICES</strong></li>
+      <li class="li1 lli">HUAWEI Mobile Cloud</li>
+      <li class="lli">HUAWEI AppGallery</li>
+      <li class="lli">HUAWEI Music</li>
+      <li class="lli">HUAWEI Themes</li>
+    </ul>
+    <ul class="uli">
+      <li class="li2"><strong>SUPPORT</strong></li>
+      <li class="li1 lli">Service Center Location</li>
+      <li class="lli">Service Privacy Notice</li>
+      <li class="lli">Parts Price Query</li>
+      <li class="lli">Mail-In Service</li>
+    </ul>
+    <ul class="uli">
+      <li class="li2"><strong>ABOUT HUAWEI</strong></li>
+      <li class="lli li1">About Us</li>
+      <li class="lli">News & Events</li>
+      <li class="lli">Sustainability</li>
+      <li class="lli">HUAWEI Enterprise</li>
+      <!-- <li class="lli">HUAWEI Carrier</li>
+    <li class="lli">HUAWEI Group</li> -->
+    </ul>
+    <ul class="uli a12">
+      <li class="li2"><strong>FOLLOW US</strong></li>
+      <li><img src="./imges/last.PNG" alt="Your browser doent support this image !"></li>
+    </ul>
+    <p class="last">Free Classifieds in Pakistan . © 2021 Muhammad Huzaifa</p>
+
+  </footer>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

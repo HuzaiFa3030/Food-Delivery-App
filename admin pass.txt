@@ -1,0 +1,8 @@
+admin password = admin@gmail.com
+passwerd = admin123
+
+
+user password = huzaifa@gmail.com	
+password = 123456
+"OR"
+sign-up (only for user)

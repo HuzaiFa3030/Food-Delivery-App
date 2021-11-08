@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="imges/icon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyAK5qa9ghea8GopMih6ZbHWJykS2fzUpMU",
+            authDomain: "food-delivery-applicatio-45882.firebaseapp.com",
+            projectId: "food-delivery-applicatio-45882",
+            storageBucket: "food-delivery-applicatio-45882.appspot.com",
+            messagingSenderId: "782867296298",
+            appId: "1:782867296298:web:4dab548bfe26e3bb221353",
+            measurementId: "G-GTF40YE397"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+
+<body>
+
+    <!-- -------------------NAVBAR---------------- -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/index.html">
+            <img src="/imges/logo.svg" style="width: 175px; height: 45px; margin-top: -4px;"
+                alt="Your browser is not supported this image">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <!-- <input class="form-control bgimg mr-sm-2" id="search" type="search" placeholder="Search" width="150px"> -->
+                <button class="form-control btnhover mr-sm-2" onclick="login()">Login</button>
+                <button class="form-control btnhover mr-sm-2" onclick="register()">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+    <!-- ---------------------SLIDER----------------------- -->
+
+    <div class="main">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/imges/slider1.jpg" class="d-block w-100" alt="Your browser is not supported this image">
+                </div>
+                <div class="carousel-item">
+                    <img src="/imges/slider2.jpg" class="d-block w-100" alt="Your browser is not supported this image">
+                </div>
+                <div class="carousel-item">
+                    <img src="/imges/slider3.jpg" class="d-block w-100" alt="Your browser is not supported this image">
+                </div>
+                <div class="carousel-item">
+                    <img src="/imges/slider4.jpg" class="d-block w-100" alt="Your browser is not supported this image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------CONTANT------------------------- -->
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent" class="alert">
+            <h2 class="active heading2"><i class="fa fa-warning" style="font-size:24px;color:red;"></i>&nbsp;ALERT</h2>
+            <br>
+            <p class="card-text">To use this food Application please first sign up or login</p>
+            <br>
+        </div>
+    </div>
+    <!-- <br></br><br><br> <br><br> <br>  -->
+    <div class="card home-food-app">
+        <div class="card-img-overlay">
+            <div class="text-hai card-img-overlay">
+                <h5 class="card-title">DOWNLOAD THE FOOD YOU LOVE</h5>
+                <p class="card-text">It's all at your fingertips – the restaurants and shops you love. Find the right
+                    food and groceries to suit your mood, and make the first bite last. Go ahead, download us.</p>
+            </div>
+        </div>
+    </div>
+    <img src="imges/food-mobil-img.webp" class="images " alt="Your browser is not supported this image">
+
+
+    <!-- ---------------------------FOOTER ----------------------------->
+    <footer>
+        <ul class="uli">
+            <li class="li2"><strong>PRODUCTS</strong></li>
+            <li class="li1 lli">Pizza</li>
+            <li class="lli">Zinger Burger</li>
+            <li class="lli">Biryani</li>
+            <li class="lli">BBQ</li>
+        </ul>
+        <ul class="uli">
+            <li class="li2"><strong>SERVICES</strong></li>
+            <li class="li1 lli">Free Delivery</li>
+            <li class="lli">Pick-Up</li>
+            <li class="lli">Food Delivery</li>
+            <li class="lli">Online Customer Service</li>
+        </ul>
+        <ul class="uli">
+            <li class="li2"><strong>SUPPORT</strong></li>
+            <li class="li1 lli">Service Center Location</li>
+            <li class="lli">Service Privacy Notice</li>
+            <li class="lli">Parts Price Query</li>
+            <li class="lli">Mail-In Service</li>
+        </ul>
+        <ul class="uli">
+            <li class="li2"><strong>ABOUT Food Panda</strong></li>
+            <li class="lli li1">About Us</li>
+            <li class="lli">News & Events</li>
+            <li class="lli">Sustainability</li>
+            <li class="lli">Food Panda</li>
+        </ul>
+        <ul class="uli a12">
+            <li class="li2"><strong>FOLLOW US</strong></li>
+            <li><img src="./imges/last.PNG" alt="Your browser doent support this image !"></li>
+        </ul>
+        <p class="last">Free Classifieds in Pakistan . © 2021 Muhammad Huzaifa</p>
+
+    </footer>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
