@@ -70,9 +70,6 @@ let signIn = () => {
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             var user = userCredential.user;
-            alert("Login Sucessfull")
-            console.log(user);
-
             if (user.email == adminUser && user.uid == adminUID) {
                 alert("Login Sucessfull")
                 window.location.href = "./adminpage.html"
